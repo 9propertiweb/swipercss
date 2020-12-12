@@ -1,0 +1,59 @@
+.spoiler
+{
+  direction:rtl;
+  font-family:"Arial";
+  
+  text-align:center;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+.summary {
+  width: 100%;
+  padding: 5px;
+  font-size:24px;
+  border-bottom: 1px solid #ccc;
+  color: #0075c9;
+  outline: none;
+  cursor: pointer;
+}
+.summary:before
+{
+  content: "?";
+  position: absolute;
+  background-size:cover;
+  margin-right:-18px;
+  font-size:24px;
+  line-height:24px;
+}
+.spoiler-checkbox
+{
+  display:none;
+}
+.spoiler .details
+{
+  overflow:hidden;
+  max-height:0px;
+  transition:max-height 0.3s ease-out;
+}
+.spoiler-checkbox:checked ~ .details{
+    display: block;
+    height:auto;
+    max-height:100vh;
+  
+}
+.spoiler-checkbox:checked ~ .summary:before {
+    content:"!";
+}
+
+
+@keyframes open {
+  0% {
+    opacity: 0;
+    height:0;
+  }
+  100% {
+    opacity: 1;
+    height:100%;
+  }
+}
